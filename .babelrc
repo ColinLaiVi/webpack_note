@@ -1,0 +1,4 @@
+{
+    // 在presets陣列中放置我們期望babel運行的code
+    "presets": ["@babel/env", "@babel/react"]
+}
