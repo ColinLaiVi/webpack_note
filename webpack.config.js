@@ -98,8 +98,8 @@ const config = {
         // manifest參數會產生manifest.js，此js會告訴瀏覽器vendor是否有改變，沒有的話不下載(有加[chunkhash]必須要加，因為webpack並不知道我們是否有更改vendor)
 
         // 因為chunkhash會導致dist目錄中的檔案名稱不重複，進而導致檔案不會被覆蓋並且越來越多，
-        // 所以要npm i rimraf --save-dev安裝rimfaf來清理。
-        // rimfaf scripts
+        // 所以要npm i rimraf --save-dev安裝rimraf來清理。
+        // rimraf scripts
         // "clean": "rimraf dist"
         // "build": "npm run clean && webpack"
 
@@ -108,9 +108,15 @@ const config = {
         //     names: ['vendor', 'manifest']
         // }),
 
-        // webpack4開始已不支援CommomsChunkPlugin，更改為splitChunks
+        // webpack4開始已不支援CommomsChunkPlugin，更改為splitChunks。
         new HtmlWebpackPlugin({
             template: 'src/index.html'
+        }),
+        // webpack.DefinePlugin是用來在bundle.js中產生window全域變數的插件，
+        // 當react讀取到'process.env.NODE_ENV'時，就不會跑出錯誤訊息。
+        // "build": "NODE_ENV=production npm run clean && webpack -p" <-- 最後面的-p代表生產版本，webpack看到-p時會自動壓縮js
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         })
     ],
     optimization: {
@@ -132,3 +138,12 @@ const config = {
 };
 
 module.exports = config;
+
+// 靜態網站部屬
+// Surge.sh
+// Github Pages
+// AWS <-- 要仔細看收費方式
+
+// 動態網站部屬
+// Heroku
+// AWS
