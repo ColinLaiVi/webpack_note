@@ -137,7 +137,7 @@ const config = {
     mode: 'development',
 };
 
-module.exports = config;
+module.exports = config
 
 // 靜態網站部屬
 // Surge.sh

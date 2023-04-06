@@ -1,0 +1,15 @@
+// 在presets陣列中放置我們期望babel運行的code
+{
+    "presets": [
+        "@babel/preset-env", 
+        ["@babel/preset-react", {"runtime": "automatic"}]
+    ],
+    "plugins": [
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                "corejs": false
+            }
+        ]
+    ]
+}
