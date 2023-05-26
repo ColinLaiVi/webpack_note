@@ -145,7 +145,8 @@ const config = {
         // 當react讀取到'process.env.NODE_ENV'時，就不會跑出錯誤訊息。
         // "build": "cross-env NODE_ENV=production npm run clean && webpack --mode production" <-- 最後面的--mode production代表生產版本，webpack看到--mode production時會自動壓縮js
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+            // 'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+            'process.env.NODE_ENV': JSON.stringify('production')
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[hash:3].css'
