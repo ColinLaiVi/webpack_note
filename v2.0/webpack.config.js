@@ -1,5 +1,5 @@
 // webpack設置
-// 安裝--> npm install --save-dev webpack
+// 安裝--> npm install --save-dev webpack webpack-cli
 // 運行--> 在package.json中的scripts配置"build": "webpack"
 const webpack = require('webpack')
 
